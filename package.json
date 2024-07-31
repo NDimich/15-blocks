@@ -1,0 +1,20 @@
+{
+    "name": "15th",
+    "version": "1.0.0",
+    "description": "Game with 15th blocks. The object of the game is to arrange blocks from 1 to 15 in order using only one empty field.",
+    "main": "index.js",
+    "scripts": {
+        "compile": "sass sass/main.scss css/styles.css -w"
+    },
+    "keywords": [
+        "15th",
+        "blocks",
+        "game"
+    ],
+    "author": "Dmytro Nazarchuk",
+    "license": "ISC",
+    "type": "module",
+    "devDependencies": {
+        "sass": "^1.77.8"
+    }
+}

@@ -1,0 +1,160 @@
+/// CONTAINER ///////
+.container {
+    padding: 5rem 5rem;
+}
+
+//// INFO ///////
+.info {
+    display: flex;
+    color: var(--color-primary-dark);
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: space-around;
+
+    .moves {
+        margin-right: auto;
+
+    }
+
+    .theme {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+
+        &__label {
+
+            margin-right: 1rem;
+        }
+
+        &__color {
+            outline: none;
+            width: 5rem;
+            height: 3rem;
+            border: none;
+            border-radius: 0.3rem;
+            margin-right: 1rem;
+        }
+
+        &__button {
+            border: 0.1rem solid var(--color-primary-dark);
+            border-radius: 1.6rem;
+            background-color: var(--color-grey-light-4);
+            color: var(--color-primary-dark);
+            font-size: 1.6rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            padding: 0.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+
+
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 1.6rem 1.6rem 1.6rem rgba($color: #000000, $alpha: 0.3);
+
+            }
+        }
+
+
+    }
+}
+
+
+//// DESK-game field contain 4 rows ///////
+.desk {
+    margin: 0 auto;
+    width: 51rem;
+    height: 51rem;
+    color: var(--color-grey-light-1);
+    background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 2rem 3rem rgba($color: #000000, $alpha: 0.5);
+
+}
+
+/// ROW in game field contain 4 blocks ///// 
+.row {
+    flex: 0 0 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+
+}
+
+/// BLOCK //////
+.block,
+.empty-block {
+    width: 12rem;
+    height: 12rem;
+    border: 0.3rem solid var(--color-grey-light-4);
+    border-radius: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 1rem 1rem 2rem rgba($color: #000000, $alpha: 0.6);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 3rem;
+        background: linear-gradient(to right bottom, var(--color-grey-dark-1), var(--color-grey-dark-3));
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+
+
+
+
+    .name {
+        flex: 0 0 80%;
+        font-size: 5rem;
+        font-weight: 600;
+        color: var(--color-grey-light-3);
+        text-align: center;
+        border: 0.2rem solid var(--color-grey-light-4);
+        border-radius: 100rem;
+        //height: 6rem;
+        padding: 0.5rem;
+        z-index: 50;
+
+
+    }
+}
+
+/// EMPTY FIELD /////////////
+.empty-block {
+
+    &>.name {
+        border: none;
+    }
+}
+
+/// ACTIVE STATE of block ////
+.active {
+    background-color: var(--color-active);
+}
