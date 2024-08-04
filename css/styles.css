@@ -3,6 +3,7 @@
   background-image: linear-gradient(to right bottom, var(--color-grey-light-2), var(--color-grey-dark-3));
   background-repeat: no-repeat;
   max-width: 100%;
+  min-height: 100%;
 }
 
 .info {
@@ -130,6 +131,10 @@
 }
 
 @media screen and (max-width: 56.25em) {
+  /* 900/16 = 56.25 em */
+  .info {
+    font-size: 1.6rem;
+  }
   .desk {
     max-width: 100%;
   }
@@ -141,9 +146,13 @@
 }
 @media screen and (max-width: 37.5rem) {
   /* 600/16 = 37.5em*/
+  .info {
+    justify-content: center;
+  }
   .desk {
     max-width: 100%;
     font-size: 1rem;
+    height: auto;
   }
   .block,
   .empty-block {
@@ -153,6 +162,23 @@
   .block .name,
   .empty-block .name {
     font-size: 4rem;
+  }
+}
+@media screen and (max-width: 28.125em) {
+  /* 450/16 = 28.125em*/
+  .container {
+    padding: 2rem 1.5rem;
+  }
+  .block,
+  .empty-block {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 2rem;
+  }
+  .block .name,
+  .empty-block .name {
+    font-size: 4rem;
+    border-radius: 2.5rem;
   }
 }
 /*
