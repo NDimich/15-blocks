@@ -1,0 +1,4 @@
+# ignore next folders
+node_modules/
+.idea/
+.gitigonore
