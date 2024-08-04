@@ -3,11 +3,17 @@ import canMoveCheck from './assets/can-move-func.js'
 import drawGameField from './assets/draw-game-field.js'
 import sortDesk from './assets/sort-helper-func.js'
 import changeTheme from './assets/change-theme.js'
+import counter from './assets/counter-of-moves.js'
 
 const deskOfBlocks = new Desk() // create new desk
 let activeObject = {} // store current active object
 drawGameField(deskOfBlocks) //draw start game field position
 
+/**
+ * Checking click on block. If block can make move, add class 'active' to it.
+ * And delete class 'active' from previous block, if once was added
+ * @param {object} e - event object
+ */
 function addClassActive(e) {
     const clickedBlock = e.target.closest('div')
     const atrDataValue = clickedBlock.getAttribute('data').trim()
@@ -27,7 +33,12 @@ function addClassActive(e) {
         }
     }
 }
-
+/**
+ * Check and make move of block, refresh game field and blocks indexes of position and properties.
+ * Redraw game field.
+ * Increase counter of moves.
+ * @param {object} e - event object
+ */
 function makeMove(e) {
     let clicked = e.target.closest('div')
 
@@ -41,6 +52,8 @@ function makeMove(e) {
 
         deskOfBlocks.sort(sortDesk)
 
+        movesNumber.textContent = numberOfMOves() + 1
+
         drawGameField(deskOfBlocks)
         canMoveCheck(deskOfBlocks)
         drawGameField(deskOfBlocks)
@@ -48,16 +61,21 @@ function makeMove(e) {
 }
 
 const desk = document.getElementById('desk')
+
+const movesNumber = document.querySelector('.moves__count')
+let numberOfMOves = counter()
+movesNumber.textContent = 0
+
 desk.addEventListener('click', (e) => {
     addClassActive(e)
     makeMove(e)
 })
 
 const btn = document.getElementById('change')
+
 btn.addEventListener('click', (e) => {
     let color = document.getElementById('color').value
     changeTheme('--color-primary', color)
 })
 
-// TODO: Count moves
 // TODO: Check if the game is over
